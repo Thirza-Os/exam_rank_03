@@ -12,29 +12,29 @@ int cmp(void *data, void *data_ref)
 	return (1);
 }
 
-// void    ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
-// {
-//     t_list  *current;
-//     t_list  *temp;
+void    ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+    t_list  *current;
+    t_list  *temp;
 
-//     while(*begin_list && cmp ((*begin_list)->data, data_ref) == 0) // Head pointer
-//     {
-//         current = *begin_list;
-//         *begin_list = (*begin_list)->next;
-//         free(current);
-//     }
-//     current = *begin_list;
-//     while(current && current->next)                     //content linked lists
-//     {
-//         if (cmp(current->next->data, data_ref) == 0)
-//         {
-//             temp = current->next;
-//             current->next = temp->next;
-//             free(temp);
-//         }
-//         current = current->next;
-//     }
-// }
+    while(*begin_list && cmp ((*begin_list)->data, data_ref) == 0) // Head pointer
+    {
+        current = *begin_list;
+        *begin_list = (*begin_list)->next;
+        free(current);
+    }
+    current = *begin_list;
+    while(current && current->next)                     //content linked lists
+    {
+        if (cmp(current->next->data, data_ref) == 0)
+        {
+            temp = current->next;
+            current->next = temp->next;
+            free(temp);
+        }
+        current = current->next;
+    }
+}
 
 int main(void)
 {
@@ -43,9 +43,9 @@ int main(void)
 	int j = 2;
 
 	lst = (t_list*)malloc(sizeof(t_list));
-	lst->data = &j;
+	lst->data = &i;
 	lst->next = (t_list*)malloc(sizeof(t_list));
-	lst->next->data = &j;
+	lst->next->data = &i;
 	lst->next->next = (t_list*)malloc(sizeof(t_list));
 	lst->next->next->data = &i;
 	lst->next->next->next = (t_list*)malloc(sizeof(t_list));

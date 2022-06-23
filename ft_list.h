@@ -1,5 +1,5 @@
 typedef struct      s_list
 {
     struct s_list   *next;
-    void            *data;
+    int             data;
 }                   t_list;
